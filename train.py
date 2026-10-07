@@ -55,7 +55,7 @@ def main():
     cfg = cargar_config()
     X_train, X_test, y_train, y_test = cargar_datos(cfg)
     modelo = entrenar(cfg, X_train, y_train)
-    auc = roc_auc_score(y_test, modelo.predict_proba(X_test)[:, 0])
+    auc = roc_auc_score(y_test, modelo.predict_proba(X_test)[:, 1])
 
     os.makedirs("models", exist_ok=True)
     with open("models/modelo_churn.pkl", "wb") as f:
